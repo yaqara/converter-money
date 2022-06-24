@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'style.css')}}">
+    <title>Index page</title>
+</head>
+<body>
+    <section class="convert">
+        <div class="main-display">
+            <form method="post">
+                <div class="currency" id="from-currency">
+                    <input type="number" min="0" name="currency_number" value="{{ currency[0] }}">
+                    <select name="from-currency-menu" value="{{ selected_currencies[0] }}">
+                        {% for key, value in options.items() %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="currency" id="to-currency">
+                    <input type="text" min="0" value="{{ currency[1] }}" id="result_output" disabled>
+                    <select name="to-currency-menu" value="{{ selected_currencies[1] }}">
+                        {% for key, value in options.items() %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div> 
+                <button type="submit">Convert</button>  
+            </form>
+        </div>
+    </section>
+</body>
+</html>
